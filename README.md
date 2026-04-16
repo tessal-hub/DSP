@@ -1,102 +1,119 @@
-# DSP Plotter Demo
+# DSP-PPG
 
-Mục tiêu của dự án là minh họa các khái niệm xử lý tín hiệu số (DSP) bằng Python. Repo này tạo tín hiệu mẫu, thiết kế bộ lọc FIR/IIR và hiển thị kết quả bằng đồ thị để dễ quan sát.
+Repository gồm **2 phần chính**:
 
-## Mục lục
+1. **PPG Analyzer App (`ppg_analyzer/`)**: ứng dụng desktop (PyQt6) để phân tích tín hiệu PPG từ file Excel.
+2. **Basic DSP Demo (`basic_DSP/`)**: các script minh họa hàm/tín hiệu cơ bản và bộ lọc FIR/IIR bằng biểu đồ.
 
-- [Tính năng](#tính-năng)
-- [Yêu cầu](#yêu-cầu)
-- [Cài đặt](#cài-đặt)
-- [Cách sử dụng nhanh](#cách-sử-dụng-nhanh)
-- [Ảnh minh họa](#ảnh-minh-họa)
-- [Cửa sổ FIR được so sánh](#cửa-sổ-fir-được-so-sánh)
-- [Cấu trúc dự án](#cấu-trúc-dự-án)
-- [Ghi chú](#ghi-chú)
+## Tính năng chính
 
-## Tính năng
+### 1) PPG Analyzer App
 
-- So sánh FIR và IIR cơ bản trên cùng một tín hiệu nhiễu.
-- Biểu diễn IIR low-pass và high-pass.
-- So sánh 4 kiểu cửa sổ FIR: Chữ nhật, Hamming, Hanning (hann), Blackman.
-- Vẽ tín hiệu trong miền thời gian và đáp ứng tần số theo dB.
-- Tổ chức mã theo từng file nhỏ, dễ sửa và dễ mở rộng.
+- Tải dữ liệu PPG từ Excel (3 cột: `timestamp`, `ir`, `red`).
+- Tự phát hiện tần số lấy mẫu (Fs), kiểm tra dữ liệu đầu vào.
+- Pipeline phân tích gồm 5 chỉ số:
+  - HR (Heart Rate)
+  - SpO2
+  - RR (Respiratory Rate)
+  - HRV
+  - PI (Perfusion Index)
+- Phát hiện vùng nhiễu chuyển động (artifact).
+- Giao diện trực quan: vùng đồ thị, panel tham số, panel kết quả.
+- Hỗ trợ lưu/đọc cấu hình preset.
 
-## Yêu cầu
+### 2) Basic DSP Demo (biểu diễn hàm cơ bản)
 
-- Python 3.10 trở lên
-- `numpy`
-- `scipy`
-- `matplotlib`
+- Sinh tín hiệu mẫu (sóng sin sạch + thành phần nhiễu).
+- So sánh FIR và IIR low-pass trên cùng tín hiệu.
+- Biểu diễn IIR low-pass/high-pass trên tín hiệu nhiễu 2 phía.
+- So sánh 4 cửa sổ FIR:
+  - Chữ nhật (`boxcar`)
+  - Hamming
+  - Hanning (`hann`)
+  - Blackman
+- Vẽ ở miền thời gian, hệ số bộ lọc và đáp ứng tần số (dB).
+
+## Yêu cầu môi trường
+
+- Python 3.10+
+- Với **PPG Analyzer App**:
+  - `PyQt6`, `numpy`, `scipy`, `pandas`, `openpyxl`, `matplotlib`
+- Với **Basic DSP Demo**:
+  - `numpy`, `scipy`, `matplotlib`
 
 ## Cài đặt
 
-Tạo và kích hoạt môi trường ảo nếu cần, sau đó cài phụ thuộc:
+Khuyến nghị tạo virtual environment, sau đó cài dependencies:
 
 ```bash
-python -m pip install numpy scipy matplotlib
+python -m pip install -r ppg_analyzer/requirements.txt
 ```
 
-## Cách sử dụng nhanh
+## Cách chạy
 
-### FIR và IIR cơ bản
+### Chạy ứng dụng PPG Analyzer
 
 ```bash
-python plotter.py
+python ppg_analyzer/main.py
 ```
 
-Kết quả hiển thị 2 bảng:
+- Có thể dùng dữ liệu mẫu: `raw_data/serial_data_1.xlsx`.
+- Định dạng file đầu vào mong đợi:
+  - Cột thời gian: `timestamp` / `time` / `time_s` / `seconds`
+  - Cột IR: `ir` / `infrared`
+  - Cột Red: `red` / `red_channel`
 
-- Bảng 1: FIR và IIR cơ bản trên tín hiệu nhiễu 5 Hz + 150 Hz
-- Bảng 2: tín hiệu sau lọc theo cấu trúc hiện tại của chương trình
+### Chạy demo DSP cơ bản
 
-### So sánh 4 cửa sổ FIR
+#### So sánh FIR/IIR cơ bản
 
 ```bash
-python plotter_window.py
+python basic_DSP/plotter.py
 ```
 
-Kết quả hiển thị 3 bảng:
+#### So sánh các cửa sổ FIR
 
-- Bảng 1: hệ số bộ lọc `h[n]` của 4 cửa sổ
-- Bảng 2: đáp ứng tần số `|H(f)|` theo dB
-- Bảng 3: tín hiệu sau lọc theo thời gian
+```bash
+python basic_DSP/plotter_window.py
+```
 
 ## Ảnh minh họa
 
-### Giao diện `plotter.py` (FIR và IIR cơ bản)
+### PPG Analyzer App
+
+![PPG Analyzer App](assets/ppg_analyzer_home.png)
+
+### `basic_DSP/plotter.py`
 
 ![Giao diện plotter.py](assets/plotter-image.png)
 
-### Giao diện `plotter_window.py` (So sánh 4 cửa sổ FIR)
+### `basic_DSP/plotter_window.py`
 
 ![Giao diện plotter_window.py](assets/plotter-window-image.png)
-
-## Cửa sổ FIR được so sánh
-
-- **Chữ nhật**: đơn giản, nhưng thường có gợn phụ lớn hơn.
-- **Hamming**: giảm gợn phụ tốt hơn cửa sổ chữ nhật.
-- **Hanning (hann)**: cân bằng giữa độ mượt và khả năng triệt nhiễu.
-- **Blackman**: suy hao dải chặn tốt hơn, nhưng vùng chuyển tiếp rộng hơn.
-
-Lưu ý: trong SciPy, tham số cửa sổ dùng tên `hann`.
 
 ## Cấu trúc dự án
 
 ```text
-assets/
-	plotter-image.png
-	plotter-window-image.png
-FIR.py
-IIR.py
-IIR_2side.py
-plotter.py
-plotter_window.py
-signal_gen.py
-README.md
+DSP-PPG/
+├── assets/                    # Hình minh họa giao diện
+├── basic_DSP/                 # Demo DSP và biểu diễn hàm cơ bản
+│   ├── signal_gen.py
+│   ├── FIR.py
+│   ├── IIR.py
+│   ├── IIR_2side.py
+│   ├── plotter.py
+│   └── plotter_window.py
+├── ppg_analyzer/              # Ứng dụng phân tích PPG
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── core/
+│   ├── ui/
+│   └── presets/
+├── raw_data/                  # Dữ liệu mẫu
+└── README.md
 ```
 
 ## Ghi chú
 
-- Các đồ thị dùng tín hiệu mẫu sinh tự động, không cần file dữ liệu ngoài.
-- Tham số lọc chính như `numtaps`, `cutoff`, `fs` được đặt trực tiếp trong code.
-- Đây là dự án mang tính học tập, phù hợp để tìm hiểu FIR, IIR và tác động của các kiểu cửa sổ lên bộ lọc số.
+- Repo phục vụ mục tiêu học tập/ứng dụng thực tế cơ bản cho DSP và PPG.
+- Các tham số lọc/peak detection có thể điều chỉnh từ ứng dụng (PPG Analyzer) hoặc trong code demo (`basic_DSP`).
