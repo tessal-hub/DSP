@@ -62,31 +62,13 @@ Kết quả hiển thị 3 bảng:
 
 ## Ảnh minh họa
 
-Nếu bạn muốn thêm screenshot vào README trên GitHub, hãy làm như sau:
+### Giao diện `plotter.py` (FIR và IIR cơ bản)
 
-1. Tạo một thư mục, ví dụ `assets/` hoặc `images/` trong repo.
-2. Lưu file ảnh vào đó, ví dụ `assets/plotter.png` hoặc `assets/window-comparison.png`.
-3. Chèn ảnh bằng Markdown theo cú pháp sau:
+![Giao diện plotter.py](assets/plotter-image.png)
 
-```markdown
-![Mô tả ảnh](assets/plotter.png)
-```
+### Giao diện `plotter_window.py` (So sánh 4 cửa sổ FIR)
 
-Bạn cũng có thể ghi chú ngay bên dưới ảnh để giải thích nội dung.
-
-Ví dụ:
-
-```markdown
-## Screenshot
-
-### Plotter FIR và IIR
-
-![Plotter FIR và IIR](assets/plotter.png)
-
-### So sánh cửa sổ FIR
-
-![So sánh cửa sổ FIR](assets/window-comparison.png)
-```
+![Giao diện plotter_window.py](assets/plotter-window-image.png)
 
 ## Cửa sổ FIR được so sánh
 
@@ -100,6 +82,9 @@ Lưu ý: trong SciPy, tham số cửa sổ dùng tên `hann`.
 ## Cấu trúc dự án
 
 ```text
+assets/
+	plotter-image.png
+	plotter-window-image.png
 FIR.py
 IIR.py
 IIR_2side.py
