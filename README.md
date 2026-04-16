@@ -9,7 +9,7 @@ Repo gồm 2 phần:
 
 Bạn có 2 cách:
 
-1. **Dùng bản release `.exe`** (không cần cài Python): tải ở trang [Releases](../../releases).
+1. **Dùng bản release `.exe`** (không cần cài Python): tải ở trang [Releases](https://github.com/tessal-hub/DSP-PPG/releases).
 2. **Chạy từ source**:
 
 ```bash
