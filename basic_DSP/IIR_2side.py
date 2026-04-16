@@ -1,6 +1,6 @@
 from scipy import signal
 
-from signal_gen import generate_signal_2side
+from basic_DSP.signal_gen import generate_signal_2side
 
 def IIR_2side():
     t, clean_signal, noisy_signal, fs = generate_signal_2side()

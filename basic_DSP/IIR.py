@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from typing import cast
 from scipy import signal
 
-from signal_gen import generate_signal
+from basic_DSP.signal_gen import generate_signal
 
 def IIR():
 # 1) Lấy dữ liệu mẫu

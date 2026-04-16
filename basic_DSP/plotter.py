@@ -1,8 +1,8 @@
 from matplotlib import pyplot as plt
 
-from FIR import FIR
-from IIR import IIR
-from IIR_2side import IIR_2side
+from basic_DSP.FIR import FIR
+from basic_DSP.IIR import IIR
+from basic_DSP.IIR_2side import IIR_2side
 
 def plot_signals():
     # Bảng 1: so sánh FIR và IIR cơ bản trên cùng tín hiệu nhiễu 1 chiều

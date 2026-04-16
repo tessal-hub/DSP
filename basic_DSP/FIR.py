@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-from signal_gen import generate_signal
+from basic_DSP.signal_gen import generate_signal
 
 def FIR ():
     

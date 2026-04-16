@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from scipy import signal
 
-from signal_gen import generate_signal
+from basic_DSP.signal_gen import generate_signal
 
 
 def plot_window_comparison():
