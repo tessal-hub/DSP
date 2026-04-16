@@ -60,34 +60,6 @@ Kết quả hiển thị 3 bảng:
 - Bảng 2: đáp ứng tần số `|H(f)|` theo dB
 - Bảng 3: tín hiệu sau lọc theo thời gian
 
-## Ảnh minh họa
-
-Nếu bạn muốn thêm screenshot vào README trên GitHub, hãy làm như sau:
-
-1. Tạo một thư mục, ví dụ `assets/` hoặc `images/` trong repo.
-2. Lưu file ảnh vào đó, ví dụ `assets/plotter.png` hoặc `assets/window-comparison.png`.
-3. Chèn ảnh bằng Markdown theo cú pháp sau:
-
-```markdown
-![Mô tả ảnh](assets/plotter.png)
-```
-
-Bạn cũng có thể ghi chú ngay bên dưới ảnh để giải thích nội dung.
-
-Ví dụ:
-
-```markdown
-## Screenshot
-
-### Plotter FIR và IIR
-
-![Plotter FIR và IIR](assets/plotter.png)
-
-### So sánh cửa sổ FIR
-
-![So sánh cửa sổ FIR](assets/window-comparison.png)
-```
-
 ## Cửa sổ FIR được so sánh
 
 - **Chữ nhật**: đơn giản, nhưng thường có gợn phụ lớn hơn.
