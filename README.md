@@ -39,4 +39,6 @@ python basic_DSP/plotter_window.py
 
 ## Ảnh minh họa
 
-![PPG Analyzer App](assets/ppg_analyzer_home.png)
+![Giao diện PPG Analyzer](assets/ppg_analyzer_home.png)
+![Giao diện Basic DSP Plotter](assets/plotter-image.png)
+![Cửa sổ Basic DSP Plotter](assets/plotter-window-image.png)
