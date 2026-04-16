@@ -1,0 +1,35 @@
+{
+  "hr.highpass_cutoff": 0.5,
+  "hr.highpass_order": 4,
+  "hr.lowpass_cutoff": 4.5,
+  "hr.lowpass_order": 4,
+  "hr.peak_min_distance": 0.6,
+  "hr.peak_min_height_pct": 30.0,
+
+  "spo2.bandpass_low": 0.8,
+  "spo2.bandpass_high": 4.0,
+  "spo2.bandpass_order": 4,
+  "spo2.r_ratio_min": 0.4,
+  "spo2.r_ratio_max": 3.4,
+  "spo2.coeff_a": 104.0,
+  "spo2.coeff_b": 17.0,
+
+  "rr.lowpass_cutoff": 0.4,
+  "rr.lowpass_order": 6,
+  "rr.peak_min_spacing": 3.0,
+  "rr.peak_max_spacing": 6.0,
+
+  "hrv.analysis_channel": "IR",
+  "hrv.min_segment_length": 120,
+  "hrv.stress_sdnn_low": 20,
+  "hrv.stress_sdnn_high": 50,
+
+  "pi.warning_threshold": 0.5,
+  "pi.ac_dc_window": 1.0,
+
+  "validation.auto_detect_fs": true,
+  "validation.fs_manual": 100.0,
+  "validation.min_duration": 120,
+  "validation.artifact_threshold_sd": 3.0,
+  "validation.max_display_rows": 1000
+}
