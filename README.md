@@ -16,6 +16,7 @@ Mục tiêu của dự án là minh họa các khái niệm xử lý tín hiệu
 ## Tính năng
 
 - So sánh FIR và IIR cơ bản trên cùng một tín hiệu nhiễu.
+- Biểu diễn IIR low-pass và high-pass.
 - So sánh 4 kiểu cửa sổ FIR: Chữ nhật, Hamming, Hanning (hann), Blackman.
 - Vẽ tín hiệu trong miền thời gian và đáp ứng tần số theo dB.
 - Tổ chức mã theo từng file nhỏ, dễ sửa và dễ mở rộng.
